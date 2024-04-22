@@ -24,10 +24,13 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Главная</a></li>
                     <li class="nav-item"><a class="nav-link" href="#event">Событие</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#registrationForm">Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registrationForm">Регистрация группы</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Контакты</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Вход</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('admin')}}">Админпанель</a></li>
+                    @can('isAdministrator')
+                        <li class="nav-item"><a class="nav-link" href="{{url('admin')}}">Админпанель</a></li>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{url('login')}}">Вход в систему</a></li>
+                    @endcan
                 </ul>
             </div>
         </div>

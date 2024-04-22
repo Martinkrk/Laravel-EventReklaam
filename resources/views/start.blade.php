@@ -10,7 +10,7 @@
                         <h1 class="display-5 fw-bolder text-white mb-2">Duis eu augue vel dui dapibus porttitor</h1>
                         <p class="lead fw-normal text-white-50 mb-4">In in est ante. Nam quis ultricies mi, a scelerisque quam. Donec nec dapibus massa. Vivamus sed sagittis augue, ac ultricies turpis!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-warning btn-lg px-4 me-sm-3" href="#">Зарегистрироваться</a>
+                            <a class="btn btn-warning btn-lg px-4" href="#!">Зарегистрироваться</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Узнать больше</a>
                         </div>
                     </div>
@@ -60,11 +60,14 @@
         <!-- Registration form-->
         <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
             <div class="text-center mb-5">
-                <h1 class="fw-bolder">Зарегестрируйте группу на мероприятие!</h1>
+                <h1 class="fw-bolder">Зарегистрируйте группу на мероприятие!</h1>
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-sm-6 col-md-4">
-                    <form action="{{url('adduser')}}" method="POST">
+                    @if (session()->has('error'))
+                        ...
+                    @endif
+                    <form action="{{url('addticket')}}" method="POST">
                         {{csrf_field()}}
                         <!-- Name input-->
                         <div class="form-floating mb-3">
